@@ -10,6 +10,7 @@
 	<h1><a href="{% url 'home' %}" title="erebbit"><img src="{% static 'img/RVCE_New_Logo.jpeg' %}" width="220" height="220"></a></h1>
 	<h1 id="e">RVCE</h1>
 
+	{% if user.is_authenticated %}
 	<form action="{% url 'search' %}" name="q" method="get">
 		<p id="inp">
 			<input type="search" name="search_query" placeholder="Search eBooks" autofocus required>
@@ -30,7 +31,7 @@
 			<label for="other" title="Other" accesskey="o">
 				<input name="other" id="other" onclick="rmAll();" type="checkbox">Other</label>
 		</p>
-		{% if user.is_authenticated %}
+		
 
 		<p id="submit">
 			<input type="submit" value="Search eBooks" title="Search eBooks">
