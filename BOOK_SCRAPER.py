@@ -23,8 +23,8 @@ while page < 82:
         link_page = requests.get(link.a['href'], headers=headers)
         print('---------------------------------------------------------------')
         try:
-            book_title = link.a.get_text()..encode("ascii", "ignore")
-            book_title=book_title..decode()
+            book_title = link.a.get_text().encode("ascii", "ignore")
+            book_title=book_title.decode()
             print(book_title)
         except:
             book_title = 'not found'
