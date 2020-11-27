@@ -1,8 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-from scraper.models import Book
-
-DJANGO_SETTINGS_MODULE=mysite.settings
 
 mozilla_agent = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0"
 headers = {'User-Agent': mozilla_agent}
@@ -10,6 +7,7 @@ headers = {'User-Agent': mozilla_agent}
 main_url = 'http://allitebooks.com'
 r = requests.get(main_url, headers=headers)
 page = 1
+field_names= ['title', 'author','size','download_link','category','date']
 
 print('Start scraping {}'.format(main_url))
 
@@ -51,13 +49,12 @@ while page < 746:
         except:
             date = 'not found'
 
-        book_obj = Book.objects.create(
-                title=book_title,
-                author=author,
-                size=size,
-                download_link=download_link,
-                category=category,
-                date=date
-           )
-        book_obj.save()
+        book_obj = [
+                {'title':book_title, 'author':author,'size':size,'download_link':download_link,'category':category,'date':date}
+        ]
+        print(book_title)
+        with open('books.csv', 'w') as csvfile: 
+            writer = csv.DictWriter(csvfile, fieldnames = field_names) 
+            writer.writeheader() 
+            writer.writerows(book_obj) 
         
