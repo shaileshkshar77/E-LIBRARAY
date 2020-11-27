@@ -20,6 +20,8 @@ from django.contrib import admin
 from django.urls import path
 from scraper import views as ebooks_views
 
+app_name='lib'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', ebooks_views.home, name='home'),
@@ -27,6 +29,7 @@ urlpatterns = [
     path('about/', ebooks_views.about, name='about'),
     path('policy/', ebooks_views.policy, name='policy'),
     path('contact/', ebooks_views.contact_us, name='contact'),
+    path('accounts/',include('accounts.urls')),
 
 ]
 

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'djangotoolbox',
 
     'scraper',
+    'accounts',
 ]
 
 MIDDLEWARE = [

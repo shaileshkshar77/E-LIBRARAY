@@ -11,24 +11,26 @@
 
   {% block head %}
   {% endblock %}
-
 </head>
 <body>
+  <nav>
+    <ul>
+        {% if user.is_authenticated %}
+        <li>
+            <form class="logout-link" action="{%url 'accounts:logout'%}" method="post">
+             {% csrf_token %}
+                <button type="submit">logout</button>
+            </form>
+        </li>
+        {% else %}
+        <li><a href="{% url 'accounts:login' %}">Login</a></li>
+        <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+        {% endif %}
+    </ul>
+</nav>
 
   {% block content %}
   {% endblock %}
-
-  <!-- <footer>
-    <nav>
-      <a href="{% url 'policy' %}">Usage Policy</a>
-      |
-      <a href="{% url 'about' %}">About</a>
-      |
-      <a href="{% url 'contact' %}">Contact Us</a>
-      |
-      <a href="{% url 'contact' %}">Send Feedback</a>
-    </nav>
-  </footer> -->
 
   {% block js %}
     <script src="{% static 'js/main.js' %}"></script>

@@ -30,9 +30,19 @@
 			<label for="other" title="Other" accesskey="o">
 				<input name="other" id="other" onclick="rmAll();" type="checkbox">Other</label>
 		</p>
+		{% if user.is_authenticated %}
+
 		<p id="submit">
 			<input type="submit" value="Search eBooks" title="Search eBooks">
 		</p>
+        
+		{% else %}
+		<p >
+			<h4> Login to enable search</h4>
+		</p>
+		
+        {% endif %}
+		
 	</form>
 </div>
 {% endblock %}
