@@ -88,18 +88,3 @@ input[type=submit] {
 	border: none;
 	cursor: pointer
 }
-footer {
-	margin: 5em auto;
-	text-align: center
-}
-footer nav {
-	display: block
-}
-footer nav a {
-	color: #009;
-	text-decoration: none;
-	border-bottom: 1px dotted #000
-}
-footer nav a:hover {
-	border-bottom: 1px solid #009
-}
