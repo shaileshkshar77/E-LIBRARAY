@@ -2,8 +2,6 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 
-
-from .forms import ContactUsForm
 from .models import Book
 
 
@@ -81,19 +79,4 @@ def search(request):
         return redirect('home')
 
 
-def about(request):
-    return render(request, 'scraper/about.html')
 
-
-def policy(request):
-    return render(request, 'scraper/policy.html')
-
-
-def contact_us(request):
-    if request.method == 'POST':
-        contactform = ContactUsForm(data=request.POST or None)
-        if contactform.is_valid():
-            contactform.save()
-            return render(request, 'scraper/contact.html', {'message': 'Message/Feedback sent successfully.'})
-    else:
-        return render(request, 'scraper/contact.html')

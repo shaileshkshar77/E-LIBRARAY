@@ -26,9 +26,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', ebooks_views.home, name='home'),
     path('search/', ebooks_views.search, name='search'),
-    path('about/', ebooks_views.about, name='about'),
-    path('policy/', ebooks_views.policy, name='policy'),
-    path('contact/', ebooks_views.contact_us, name='contact'),
     path('accounts/',include('accounts.urls')),
 
 ]

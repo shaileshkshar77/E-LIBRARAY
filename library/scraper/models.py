@@ -19,19 +19,3 @@ class Book(models.Model):
     def str(self):
         return self.title
 
-
-class ContactUs(models.Model):
-    name = models.CharField(max_length=30, null=True, blank=True, default='Anonymous')
-    email = models.EmailField(max_length=200)
-    message = models.TextField(max_length=2000)
-
-    timestamp = models.DateTimeField(default=timezone.now)
-
-    class Meta:
-        verbose_name = 'Feedback'
-        verbose_name_plural = 'Feedbacks'
-        ordering = ('-timestamp',)
-
-
-    def str(self):
-        return self.email
