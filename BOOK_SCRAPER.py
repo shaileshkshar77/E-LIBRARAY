@@ -43,10 +43,8 @@ while page < 82:
         except:
             author = 'not found'
 
-        # File size is not available here.
         size = 'not found'
 
-        # Category is not available here.
         category = 'not found'
 
 
@@ -56,6 +54,5 @@ while page < 82:
         print(book_title)
         with open('book.csv', 'a') as csvfile: 
             writer = csv.DictWriter(csvfile, fieldnames = field_names) 
-            #writer.writeheader() 
             writer.writerows(book_obj) 
         
